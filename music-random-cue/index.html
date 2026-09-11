@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Cue Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="part-screen" class="screen">
+      <h1>Music Cue Generator</h1>
+      <p class="intro">Choose your part.</p>
+      <div id="part-list" class="part-list"></div>
+    </section>
+
+    <section id="cue-screen" class="screen hidden">
+      <button id="change-part" class="text-button" type="button">← Change part</button>
+
+      <p id="part-name" class="part-name"></p>
+
+      <div id="cue" class="cue" aria-live="polite">—</div>
+      <p id="status" class="status">Ready</p>
+
+      <button id="start-button" class="start-button" type="button">Start</button>
+      <button id="stop-button" class="stop-button hidden" type="button">Stop</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
