@@ -1,0 +1,194 @@
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f1;
+  color: #161616;
+}
+
+body { min-height: 100vh; }
+button { font: inherit; }
+
+.app {
+  width: min(1100px, 94vw);
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+.hidden { display: none !important; }
+.screen { text-align: center; }
+
+h1 {
+  margin: 18px 0 30px;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.part-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.part-button {
+  min-height: 74px;
+  padding: 14px 18px;
+  border: 2px solid #161616;
+  border-radius: 14px;
+  background: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.part-button:hover,
+.part-button:focus-visible { background: #e7e7e2; }
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.topbar > :first-child { justify-self: start; }
+.topbar > :last-child { justify-self: end; }
+
+.part-name {
+  font-weight: 800;
+  font-size: clamp(1.15rem, 3vw, 1.8rem);
+}
+
+.plain-button {
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.image-stage {
+  position: relative;
+  width: 100%;
+  height: min(70vh, 760px);
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  background: white;
+  border: 3px solid #161616;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.cue-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ready-message {
+  padding: 20px;
+  font-weight: 700;
+  font-size: clamp(2rem, 7vw, 5rem);
+  line-height: 1.1;
+}
+
+/* The small countdown that appears while an image is visible. */
+.next-countdown {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  min-width: 104px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.78);
+  color: white;
+  font-weight: 800;
+  font-size: clamp(1rem, 2.3vw, 1.45rem);
+  line-height: 1;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  min-height: 1.5em;
+  margin: 15px 0 18px;
+  font-size: 1.05rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.start-button,
+.stop-button {
+  min-width: 190px;
+  min-height: 60px;
+  padding: 12px 28px;
+  border: 2px solid #161616;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.start-button {
+  background: #161616;
+  color: white;
+}
+
+.stop-button {
+  background: white;
+  color: #161616;
+}
+
+:fullscreen .app {
+  width: 100vw;
+  padding: 8px;
+}
+
+:fullscreen .topbar { margin-bottom: 8px; }
+
+:fullscreen .image-stage {
+  height: calc(100vh - 125px);
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .app { padding-top: 12px; }
+
+  .topbar { grid-template-columns: 1fr 1fr; }
+
+  .part-name {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .topbar > :first-child {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .topbar > :last-child {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .image-stage {
+    min-height: 300px;
+    height: 62vh;
+  }
+
+  .next-countdown {
+    top: 8px;
+    right: 8px;
+    min-width: 88px;
+    padding: 8px 10px;
+  }
+}
