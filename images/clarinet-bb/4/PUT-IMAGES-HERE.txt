@@ -1,0 +1,1 @@
+Put JPG, JPEG, PNG, WebP, GIF, or SVG images in this folder.
